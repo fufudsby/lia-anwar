@@ -62,6 +62,7 @@ export default function Home({ data }) {
   const [ values, setValues ] = useState({});
   const [ success, setSuccess ] = useState(false);
   const [ openBody, setOpenBody ] = useState(false);
+  console.log('messages', messages);
   const customCss = `body { overflow-y: ${openBody ? 'auto' : 'hidden'} }`;
   const { togglePlayPause, ready, loading, playing, play } = useAudioPlayer({
     src: '/audio/back_sound.mp3',
@@ -99,12 +100,15 @@ export default function Home({ data }) {
     );
     const result = await v.json();
     console.log('result', result);
+    console.log('values', values);
     if (result.createMessage) {
+      const newArray = [values].concat(messages)
+      setMessages(newArray);
       setValues({});
       setSuccess(true);
     }
     setLoadingRSVP(false);
-  }, [values]);
+  }, [values, messages]);
   const AudioPlayer = () => {
     if (!ready && !loading) return null;
     if (loading) {
