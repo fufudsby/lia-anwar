@@ -45,7 +45,7 @@ const Gallery = () => {
   return (
     <Box className={classes.container} paddingTop={5} paddingBottom={3}>
       <Slider {...settings}>
-        {[1, 2, 3, 4, 5, 6, 7].map((v) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((v) => (
           <div key={v} className="img-container">
             <img src={`/images/img/img${v}.jpg`} />
           </div>

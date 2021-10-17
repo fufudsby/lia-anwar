@@ -6,7 +6,7 @@ import Title2 from 'components/title2';
 const Wishes = ({ messages, loadingMessage }) => {
   return (
     <Box paddingY={3}>
-      <Title2 text="Ucapan" />
+      {messages.length > 0 && <Title2 text="Ucapan" />}
       {messages.length > 0 && messages.map((d, i) => (
         <CardWishes key={i} message={d} />
       ))}
